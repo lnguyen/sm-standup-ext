@@ -1,0 +1,9 @@
+#!/bin/sh
+
+log "standup:postgres> setup"
+
+sm set install postgresql
+sm postgresql install
+sm postgresql configure
+sm postgresql initialize
+sm postgresql start

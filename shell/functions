@@ -1,0 +1,26 @@
+#!/bin/sh
+
+standup_init()
+{
+  typeset -a newargs
+  typeset token
+
+  while (( ${#extension_args} ))
+  do  
+    array shift extension_args into token
+    case "${token}" in
+      (environment)
+        array shift extension_args into environment
+        ;;  
+      (*) 
+        if variable is nonempty token
+        then newargs+=("${token}") ; fi
+        ;;  
+    esac
+  done
+
+  extension_args=("${newargs[@]}")
+
+  if variable is empty environment
+  then environment="development" ; fi
+}

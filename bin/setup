@@ -1,0 +1,6 @@
+#!/bin/sh
+
+log "standup> setup"
+
+#sm standup nginx setup
+sm standup postgres setup
